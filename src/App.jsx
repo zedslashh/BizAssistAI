@@ -87,6 +87,7 @@ function tinyEmbed(str) {
 const STATIC_FAQS = [
   { q: "What are your opening hours?", a: "Our standard hours are 9am–6pm, Mon–Sat.", verticals: ["supermarket","beauty parlour","fitness","restaurant","education","travel","finance","health"] },
   { q: "Do you offer refunds?", a: "Yes, within 7 days with receipt or order ID.", verticals: ["supermarket","restaurant","education","travel","fitness","beauty parlour"] },
+  { q: "Hi", a: "Hello,How can I help you", verticals: ["supermarket","restaurant","education","travel","fitness","beauty parlour","health"] },
   { q: "How to contact support?", a: "Email support@company.com or WhatsApp the widget.", verticals: ["health","finance","education","travel","restaurant","fitness"] },
 ];
 
@@ -379,12 +380,7 @@ function Chatbot({ org, user, onHandoff }) {
               <Send className="w-4 h-4 mr-2" /> Send
             </Button>
           </div>
-          <Alert className="bg-amber-50/80 border-amber-200">
-            <AlertTitle>Demo mode</AlertTitle>
-            <AlertDescription>
-              For production, route retrieval results into Gemini (English) or IndicBERT (Tamil/Tanglish) with IndicTrans for translation, and compute model confidence from logprobs or calibrated scores.
-            </AlertDescription>
-          </Alert>
+          
         </CardContent>
       </Card>
     </div>
@@ -478,16 +474,6 @@ export default function App() {
           )}
         </div>
       )}
-
-      {/* Sticky integrations + language badges */}
-      <div className="fixed bottom-3 right-3 flex flex-col gap-2">
-        <Badge className="rounded-xl" style={{ background: PRIMARY }}>
-          <Globe className="w-3 h-3 mr-1" /> {org?.integration || "widget"}
-        </Badge>
-        <Badge className="rounded-xl" style={{ background: PRIMARY }}>
-          <Languages className="w-3 h-3 mr-1" /> {org?.lang || "both"}
-        </Badge>
-      </div>
 
       {/* Footer */}
       <div className="text-center text-xs text-gray-500 py-6">© {new Date().getFullYear()} AI SaaS Chatbot </div>
